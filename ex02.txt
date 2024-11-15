@@ -1,0 +1,36 @@
+2 Acerca de alocação dinâmica de memória
+Responda:
+a) Qual o comportamento da função free?
+    A função free é usada para liberar a memória que foi alocada dinamicamente, geralmente com funções como malloc, calloc ou realloc. Quando você chama free, a memória que foi alocada é devolvida ao sistema operacional, tornando-a novamente disponível para outros processos ou alocações. Após chamar free, a variável ponteiro que apontava para o bloco de memória liberado ainda existe, mas o conteúdo que ele apontava não é mais válido. O ponteiro, após o free, passa a ser um "ponteiro pendente" (dangling pointer), e acessá-lo sem ser redefinido pode causar comportamentos indeterminados.
+
+b) Após chamar free, o ponteiro pode ser utilizado?
+    Não, após chamar free, o ponteiro não deve mais ser utilizado. A memória que o ponteiro apontava foi liberada e não está mais válida. Se você tentar acessar a memória através desse ponteiro, poderá causar problemas como corrupção de dados ou falhas no programa. 
+
+c) O que causa vazamentos de memória?
+    Vazamentos de memória ocorrem quando a memória alocada dinamicamente é "perdida", ou seja, quando você perde a referência (o ponteiro) para a área de memória alocada e não chama free para liberar essa memória.
+
+d) O que a instrução malloc retorna quando não consegue realizar a alocação?
+    Quando malloc não consegue realizar a alocação de memória, ele retorna NULL. Isso indica que houve uma falha na alocação, seja por falta de memória disponível no sistema ou por algum outro erro. 
+
+e) Explique a instrução calloc.
+    A função calloc é semelhante à função malloc, mas com duas diferenças importantes:
+
+    Ela aloca memória para um número específico de elementos.
+    Ela inicializa a memória alocada com zero (ou seja, todos os bytes são definidos como 0).
+    A sintaxe é:
+
+    void *calloc(size_t num, size_t size);
+
+    num: número de elementos a serem alocados.
+    size: tamanho de cada elemento.
+    Exemplo: 
+    
+    int *arr = calloc(5, sizeof(int));  // Aloca memória para 5 inteiros e inicializa todos com 0
+
+    Se a alocação falhar, calloc retorna NULL, assim como malloc.
+
+f) Qual a diferença entre as instruções malloc e calloc?
+    A principal diferença entre malloc e calloc está na forma como eles inicializam a memória:
+
+    malloc: Aloca um bloco de memória de um tamanho específico, mas não inicializa a memória. O conteúdo da memória alocada é indeterminado e pode conter dados antigos.
+    calloc: Aloca memória para um número específico de elementos e inicializa a memória com zero. Isso garante que todos os valores na memória alocada sejam 0, o que pode ser útil em alguns casos.

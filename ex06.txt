@@ -1,0 +1,1 @@
+Resposta: Após a execução do código, o valor de w será 16.

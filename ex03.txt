@@ -1,0 +1,71 @@
+3 Acerca de Manipulação de Arquivos.
+
+a) Explique os diferentes modos de abertura de arquivos.
+
+"r" (leitura):
+
+Abre o arquivo para leitura.
+O arquivo deve existir; se não existir, a função fopen retornará NULL.
+O ponteiro de arquivo é posicionado no início do arquivo.
+
+"w" (escrita):
+
+Abre o arquivo para escrita.
+Se o arquivo já existir, ele será truncado (seu conteúdo será apagado).
+Se o arquivo não existir, um novo arquivo será criado.
+O ponteiro de arquivo é posicionado no início do arquivo.
+
+"a" (acréscimo):
+
+Abre o arquivo para escrita, mas os dados serão adicionados ao final do arquivo (em vez de sobrescrever).
+Se o arquivo não existir, ele será criado.
+O ponteiro de arquivo é posicionado no final do arquivo.
+
+"r+" (leitura e escrita):
+
+Abre o arquivo para leitura e escrita.
+O arquivo deve existir; se não existir, a função fopen retornará NULL.
+O ponteiro de arquivo é posicionado no início do arquivo.
+
+"w+" (leitura e escrita, truncando):
+
+Abre o arquivo para leitura e escrita.
+Se o arquivo já existir, ele será truncado.
+Se o arquivo não existir, um novo arquivo será criado.
+O ponteiro de arquivo é posicionado no início do arquivo.
+
+"a+" (leitura e escrita, com acréscimo):
+
+Abre o arquivo para leitura e escrita.
+Se o arquivo não existir, um novo arquivo será criado.
+O ponteiro de arquivo é posicionado no final do arquivo.
+
+"b" (modo binário):
+
+O "b" pode ser adicionado a qualquer modo de abertura para abrir o arquivo em modo binário (exemplo: "rb", "wb", "r+b", "a+b").
+Isso é especialmente útil em sistemas onde o modo binário é tratado de maneira diferente (como no Windows), embora em sistemas Unix/Linux o modo binário não seja essencial.
+
+b) Explique o funcionamento das funções fgets, fprintf, fread, fwrite.
+
+fgets (leitura de uma linha do arquivo):
+
+Função: char *fgets(char *str, int n, FILE *stream);
+A função lê uma linha do arquivo, armazenando-a em str até que n-1 caracteres sejam lidos ou até que um caractere de nova linha (\n) seja encontrado.
+A função retorna str se a leitura for bem-sucedida, ou NULL se ocorrer um erro ou o final do arquivo (EOF) for alcançado.
+
+fprintf (escrita formatada no arquivo):
+
+Função: int fprintf(FILE *stream, const char *format, ...);
+A função escreve dados formatados no arquivo stream. Ela funciona de maneira semelhante à função printf, mas os dados são escritos no arquivo em vez de serem exibidos na tela.
+
+fread (leitura de dados binários do arquivo):
+
+Função: size_t fread(void *ptr, size_t size, size_t count, FILE *stream);
+A função lê count objetos de size bytes do arquivo stream e os armazena no buffer apontado por ptr.
+Retorna o número de objetos lidos com sucesso. Se ocorrer um erro ou se o final do arquivo for atingido, o valor retornado pode ser menor que count.
+
+fwrite (escrita de dados binários no arquivo):
+
+Função: size_t fwrite(const void *ptr, size_t size, size_t count, FILE *stream);
+A função escreve count objetos de size bytes do buffer apontado por ptr no arquivo stream.
+Retorna o número de objetos gravados com sucesso. Se ocorrer um erro, o valor retornado pode ser menor que count.

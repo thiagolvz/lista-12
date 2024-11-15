@@ -1,0 +1,28 @@
+8 O que é um vetor?
+Explique o funcionameno de um vetor e como ele é tratado no C.
+
+Resposta: Um vetor é uma estrutura de dados que armazena vários elementos do mesmo tipo de forma contígua na memória. Cada elemento é acessado por um índice.
+
+Como funciona um vetor no C:
+Declaração: Um vetor é declarado com o tipo de dados e o número de elementos:
+
+tipo nome_do_vetor[tamanho];
+Acesso aos elementos: O acesso aos elementos do vetor é feito através de seu índice (começando de 0):
+
+nome_do_vetor[indice];
+Inicialização: Um vetor pode ser inicializado com valores diretamente:
+
+int vetor[3] = {1, 2, 3};
+Limitação: O tamanho do vetor é fixo, ou seja, não pode ser alterado após sua criação.
+
+Exemplo simples:
+
+#include <stdio.h>
+
+int main() {
+    int vetor[3] = {10, 20, 30};
+    printf("%d\n", vetor[0]);  // Acessa o primeiro elemento
+    vetor[1] = 25;  // Modifica o segundo elemento
+    printf("%d\n", vetor[1]);  // Imprime o novo valor
+    return 0;
+}
